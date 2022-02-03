@@ -1,7 +1,9 @@
-import { HomePage } from "./components/home_page/HomePage"
+import { HomePage } from './components/home_page/HomePage';
 
 export const App = () => {
-    return <>
-    <HomePage />
-    </>
-}
+    return (
+        <>
+            <HomePage />
+        </>
+    );
+};
