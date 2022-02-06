@@ -13,7 +13,7 @@ import сheese_pancakes from './../pictures/сheese_pancakes.png';
 export const recipes = [
     {
         id: 1,
-        name: 'burger',
+        name: 'Burger',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -23,7 +23,7 @@ export const recipes = [
     },
     {
         id: 2,
-        name: 'fast breakfast',
+        name: 'Fast breakfast',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -33,7 +33,7 @@ export const recipes = [
     },
     {
         id: 3,
-        name: 'fruits',
+        name: 'Fruits',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -43,7 +43,7 @@ export const recipes = [
     },
     {
         id: 4,
-        name: 'ice cream',
+        name: 'Ice cream',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -53,7 +53,7 @@ export const recipes = [
     },
     {
         id: 5,
-        name: 'pancakes blueberry',
+        name: 'Pancakes blueberry',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -63,7 +63,7 @@ export const recipes = [
     },
     {
         id: 6,
-        name: 'pancakes orange',
+        name: 'Pancakes orange',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -73,7 +73,7 @@ export const recipes = [
     },
     {
         id: 7,
-        name: 'pancakes strawberry',
+        name: 'Pancakes strawberry',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -83,7 +83,7 @@ export const recipes = [
     },
     {
         id: 8,
-        name: 'porridge',
+        name: 'Porridge',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -93,7 +93,7 @@ export const recipes = [
     },
     {
         id: 9,
-        name: 'salmon',
+        name: 'Salmon',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -103,7 +103,7 @@ export const recipes = [
     },
     {
         id: 10,
-        name: 'sweet sandwich',
+        name: 'Sweet sandwich',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:
@@ -113,7 +113,7 @@ export const recipes = [
     },
     {
         id: 11,
-        name: 'сheese pancakes',
+        name: 'Cheese pancakes',
         shortDescription:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         description:

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 88px;
     font-family: Nunito;
@@ -16,11 +15,9 @@ export const Navbar = () => {
     return (
         <>
             <Nav>
-                <div>
-                    <Link to={'/'}>Main</Link>
-                    <Link to={'/resepies'}>Resepies</Link>
-                    <Link to={'/cookbook'}>Cookbooks</Link>
-                </div>
+                <Link to="/">Main</Link>
+                <Link to="/recipes">Recipes</Link>
+                <Link to="/cookbook">Cookbooks</Link>
             </Nav>
         </>
     );

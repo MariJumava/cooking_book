@@ -1,13 +1,13 @@
-import { recipes } from '../Recipes';
 import { Card } from './Card';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
 `;
 
-export const CardRecipes = () => {
+export const CardRecipes = ({ recipes }) => {
     return (
         <Wrapper>
             {recipes.map((card) => {
