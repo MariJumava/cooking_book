@@ -5,7 +5,7 @@ import { CardRecipesPage } from './CardRecipesPage';
 
 const Container = styled.div`
     display: flex;
-    height: fit-content;
+    justify-content: space-evenly;
     background: #b1b1b1;
 `;
 

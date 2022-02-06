@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Frame = styled.div`
     display: flex;
+    margin-top: 30px;
     background: #ffffff;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 50px 10px 10px 10px;
