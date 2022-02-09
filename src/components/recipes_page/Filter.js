@@ -3,13 +3,18 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
+    margin-right: 40px;
 `;
 
 const Wrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 272px;
     height: 292px;
-    margin-left: 150px;
+    margin-left: 100px;
     margin-top: 100px;
+    padding: 20px;
     background: #ffffff;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
@@ -17,7 +22,7 @@ const Wrap = styled.div`
 
 const Div = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 `;
 
 const Title = styled.h2`
@@ -37,6 +42,19 @@ const Clear = styled.p`
     color: #ffbc01;
 `;
 
+const Select = styled.select`
+    width: 224px;
+    height: 40px;
+    padding: 10px;
+    font-family: Nunito;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19px;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    border-radius: 4px;
+`;
+
 export const Filter = () => {
     const [value, setValue] = useState('');
 
@@ -44,19 +62,20 @@ export const Filter = () => {
         <Container>
             <Wrap>
                 <Div>
-                    <Title>Filter</Title>
+                    <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
                     <Clear>clear all</Clear>
                 </Div>
                 <Title>Sort by</Title>
-                <select
+                <Select
                     value={value}
                     onChange={(event) => {
                         setValue(event.target.value);
                     }}
                 >
-                    <option>Popularity</option>
-                    <option>By name</option>
-                </select>
+                    <option value="all">All</option>
+                    <option value="popularity">Popularity</option>
+                    <option value="name">By name</option>
+                </Select>
                 <Title>Cooking Time</Title>
             </Wrap>
         </Container>

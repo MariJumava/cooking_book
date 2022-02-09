@@ -18,7 +18,7 @@ const Subtitle = styled.h5`
     text-align: center;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #ffbc01;
+    color: ${(props) => (props.primary ? '#ffffff' : '#ffbc01')};
 `;
 
 const Title = styled.h2`
@@ -31,14 +31,18 @@ const Title = styled.h2`
     color: #181818;
 `;
 
+const Img = styled.img`
+    width: 1440px;
+`;
+
 const Section = styled.section`
-    width: 1600px;
+    width: 100%;
     height: 800px;
     background: #ffbc01;
 `;
 
 const recipesBaking = recipes
-    .filter((r) => r.category === 'baking')
+    .filter((r) => r.category === 'vegetarian')
     .slice(1, 4);
 
 const recipesBasic = recipes.filter((r) => r.category === 'basic').slice(1, 5);
@@ -48,7 +52,7 @@ const recipesSweet = recipes.filter((r) => r.category === 'sweet').slice(0, 3);
 export const HomePage = () => {
     return (
         <Wrap>
-            <img src={main_picture} />
+            <Img src={main_picture} />
             <Subtitle>Users choice</Subtitle>
             <Title>Highest-Rated Recipes</Title>
             <CardRecipes recipes={recipesBaking} />
@@ -56,7 +60,7 @@ export const HomePage = () => {
             <Title>Most Popular CookBooks</Title>
             <CardRecipes recipes={recipesBasic} />
             <Section>
-                <Subtitle style={{ color: '#FFFFFF' }}>Top 10</Subtitle>
+                <Subtitle primary>Top 10</Subtitle>
                 <Title>Trending Recepies</Title>
                 <CardRecipes recipes={recipesSweet} />
             </Section>
