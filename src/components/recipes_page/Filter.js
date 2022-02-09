@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -55,8 +54,30 @@ const Select = styled.select`
     border-radius: 4px;
 `;
 
-export const Filter = () => {
-    const [value, setValue] = useState('');
+export const Filter = ({ setSortType }) => {
+    //const [search, setSearch] = useState('');
+
+    // const handleChange = (e) => {
+    //     e.preventDefault();
+    //     setSearch(e.target.value);
+    // };
+    // const listItem = recipes
+    //     .filter((recipe) => {
+    //         if (search === '') {
+    //             return recipe;
+    //         } else if (
+    //             recipe.name.toLowerCase().includes(search.toLowerCase())
+    //         ) {
+    //             return recipe;
+    //         }
+    //     })
+    //     .map((item) => {
+    //         return (
+    //             <div key={item.id}>
+    //                 <h5>{item.name}</h5>
+    //             </div>
+    //         );
+    //     });
 
     return (
         <Container>
@@ -65,11 +86,12 @@ export const Filter = () => {
                     <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
                     <Clear>clear all</Clear>
                 </Div>
+                {/* <input type="text" onChange={handleChange} value={search} />
+                <div>{listItem}</div> */}
                 <Title>Sort by</Title>
                 <Select
-                    value={value}
                     onChange={(event) => {
-                        setValue(event.target.value);
+                        setSortType(event.target.value);
                     }}
                 >
                     <option value="all">All</option>

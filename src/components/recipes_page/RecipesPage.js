@@ -1,4 +1,4 @@
-//import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { recipes } from '../Recipes';
 import { Filter } from './Filter';
 import { CardRecipesPage } from './CardRecipesPage';
@@ -27,14 +27,31 @@ const Title = styled.h2`
 `;
 
 export const RecipesPage = () => {
-    //const [changeRecipe, setChangeRecipe] = useState('all');
+    const [sortRecipes, setSortRecipes] = useState([]);
+    const [sortType, setSortType] = useState('all');
 
+    useEffect(() => {
+        const sortRecipes = (type) => {
+            const types = {
+                all: 'all',
+                popularity: 'popularity',
+                name: 'name',
+            };
+            const sortProperty = types[type];
+            const sorted = [...recipes].sort(
+                (a, b) => b[sortProperty] - a[sortProperty]
+            );
+            setSortRecipes(sorted);
+        };
+
+        sortRecipes(sortType);
+    }, [sortType]);
     return (
         <Container>
-            <Filter />
+            <Filter setSortType={setSortType} />
             <Wrap>
                 <Title>Recipes</Title>
-                {recipes.map((card) => {
+                {sortRecipes.map((card) => {
                     return <CardRecipesPage card={card} key={card.id} />;
                 })}
             </Wrap>
