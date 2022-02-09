@@ -7,7 +7,7 @@ const Nav = styled.nav`
     align-items: center;
     height: 88px;
     font-family: Nunito;
-    font-size: 20px;
+    font-size: 25px;
     color: #181818;
 `;
 

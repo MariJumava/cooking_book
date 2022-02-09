@@ -1,21 +1,23 @@
 import burger from './../pictures/burger.png';
-import fast_breakfast from './../pictures/fast_breakfast.png';
-import fruits from './../pictures/fruits.png';
-import ice_cream from './../pictures/ice_cream.png';
-import pancakes_blueberry from './../pictures/pancakes_blueberry.png';
-import pancakes_orange from './../pictures/pancakes_orange.png';
+import chicken from './../pictures/chicken.png';
+import fruit from './../pictures/fruit.png';
+import raspberry_dessert from './../pictures/raspberry_dessert.png';
+import salad from './../pictures/salad.png';
+import steak from './../pictures/steak.png';
 import pancakes_strawberry from './../pictures/pancakes_strawberry.png';
 import porridge from './../pictures/porridge.png';
 import salmon from './../pictures/salmon.png';
-import sweet_sandwich from './../pictures/sweet_sandwich.png';
+import tom_yum_soup from './../pictures/tom_yum_soup.png';
 import сheese_pancakes from './../pictures/сheese_pancakes.png';
+import trout from './../pictures/trout.png';
+import vegetables from './../pictures/vegetables.png';
 
 export const recipes = [
     {
         id: 1,
         name: 'Burger',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
         img: burger,
@@ -23,79 +25,79 @@ export const recipes = [
     },
     {
         id: 2,
-        name: 'Fast breakfast',
+        name: 'Chicken',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
-        img: fast_breakfast,
+        img: chicken,
         category: 'basic',
     },
     {
         id: 3,
-        name: 'Fruits',
+        name: 'Fruit',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
-        img: fruits,
+        img: fruit,
         category: 'sweet',
     },
     {
         id: 4,
-        name: 'Ice cream',
+        name: 'Raspberry dessert',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
-        img: ice_cream,
+        img: raspberry_dessert,
         category: 'sweet',
     },
     {
         id: 5,
-        name: 'Pancakes blueberry',
+        name: 'Salad',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
-        img: pancakes_blueberry,
-        category: 'baking',
+        img: salad,
+        category: 'vegetarian',
     },
     {
         id: 6,
-        name: 'Pancakes orange',
+        name: 'Steak',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
-        img: pancakes_orange,
-        category: 'baking',
+        img: steak,
+        category: 'basic',
     },
     {
         id: 7,
         name: 'Pancakes strawberry',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
         img: pancakes_strawberry,
-        category: 'baking',
+        category: 'sweet',
     },
     {
         id: 8,
         name: 'Porridge',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
         img: porridge,
-        category: 'basic',
+        category: 'vegetarian',
     },
     {
         id: 9,
         name: 'Salmon',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
         img: salmon,
@@ -103,22 +105,42 @@ export const recipes = [
     },
     {
         id: 10,
-        name: 'Sweet sandwich',
+        name: 'Tom yum soup',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
-        img: sweet_sandwich,
-        category: 'sweet',
+        img: tom_yum_soup,
+        category: 'vegetarian',
     },
     {
         id: 11,
         name: 'Cheese pancakes',
         shortDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
         img: сheese_pancakes,
-        category: 'baking',
+        category: 'sweet',
+    },
+    {
+        id: 12,
+        name: 'Trout',
+        shortDescription:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
+        img: trout,
+        category: 'basic',
+    },
+    {
+        id: 13,
+        name: 'Vegetables',
+        shortDescription:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus.',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum tempus viverra augue ac elit. Interdum libero at tristique fames faucibus. Massa a, consectetur et viverra vulputate urna enim felis metus. Consequat morbi cras elit mauris phasellus at fames eget. Nunc, at vitae integer morbi nibh dignissim non tempus pellentesque. Erat platea augue sed amet, tempor, sed sollicitudin. Viverra tincidunt eu nulla pulvinar eget dolor. Dui, lacus sed ut id egestas elit, mi. Pretium elementum commodo amet cursus massa dictum. Ac, pharetra nisi, morbi maecenas facilisi.',
+        img: vegetables,
+        category: 'vegetarian',
     },
 ];
