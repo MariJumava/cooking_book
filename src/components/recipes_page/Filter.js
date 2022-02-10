@@ -54,31 +54,7 @@ const Select = styled.select`
     border-radius: 4px;
 `;
 
-export const Filter = ({ setSortType }) => {
-    //const [search, setSearch] = useState('');
-
-    // const handleChange = (e) => {
-    //     e.preventDefault();
-    //     setSearch(e.target.value);
-    // };
-    // const listItem = recipes
-    //     .filter((recipe) => {
-    //         if (search === '') {
-    //             return recipe;
-    //         } else if (
-    //             recipe.name.toLowerCase().includes(search.toLowerCase())
-    //         ) {
-    //             return recipe;
-    //         }
-    //     })
-    //     .map((item) => {
-    //         return (
-    //             <div key={item.id}>
-    //                 <h5>{item.name}</h5>
-    //             </div>
-    //         );
-    //     });
-
+export const Filter = ({ setSortType, handleChange }) => {
     return (
         <Container>
             <Wrap>
@@ -86,8 +62,11 @@ export const Filter = ({ setSortType }) => {
                     <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
                     <Clear>clear all</Clear>
                 </Div>
-                {/* <input type="text" onChange={handleChange} value={search} />
-                <div>{listItem}</div> */}
+                <input
+                    type="text"
+                    placeholder="Search by name..."
+                    onChange={handleChange}
+                />
                 <Title>Sort by</Title>
                 <Select
                     onChange={(event) => {
