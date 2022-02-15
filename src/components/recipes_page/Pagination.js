@@ -6,24 +6,15 @@ const Container = styled.div`
     padding-top: 30px;
 `;
 
-export const Pagination = ({
-    recipesPerPage,
-    recipesTotal,
-    paginate,
-    currentPage,
-}) => {
+export const Pagination = ({ itemsPerPage, totalRecipes, paginate }) => {
     const pageNumbers = [];
-    const pageCount = Math.round(recipesTotal / recipesPerPage);
-    const start = currentPage - 2 <= 0 ? 1 : currentPage - 2;
-    const end = currentPage + 2 > pageCount ? pageCount : currentPage + 2;
-    for (let i = start; i <= end; i++) {
+
+    const pageCount = Math.ceil(totalRecipes / itemsPerPage);
+    for (let i = 1; i <= pageCount; i++) {
         pageNumbers.push(i);
     }
     return (
         <Container>
-            {pageNumbers.includes(1) ? null : (
-                <button onClick={() => paginate(1)}>{1}</button>
-            )}
             {pageNumbers.map((number) => {
                 return (
                     <div key={number}>
@@ -33,9 +24,6 @@ export const Pagination = ({
                     </div>
                 );
             })}
-            {pageNumbers.includes(pageCount) ? null : (
-                <button onClick={() => paginate(pageCount)}>{pageCount}</button>
-            )}
         </Container>
     );
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { recipes } from '../Recipes';
 import { Filter } from './Filter';
 import { CardRecipesPage } from './CardRecipesPage';
@@ -8,13 +8,15 @@ import styled from 'styled-components';
 const Container = styled.div`
     display: flex;
     justify-content: center;
-    background: #f7f7f7; ;
+    padding-bottom: 30px;
+    background: #f7f7f7;
 `;
 
 const Wrap = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 100px 200px 30px 40px;
+    align-items: flex-start;
+    margin: 100px 200px 0 40px;
 `;
 
 const Title = styled.h2`
@@ -26,36 +28,42 @@ const Title = styled.h2`
     align-items: center;
     color: #181818;
 `;
+const itemsPerPage = 6;
 
 export const RecipesPage = () => {
-    const [sortRecipes, setSortRecipes] = useState([]);
     const [sortType, setSortType] = useState('all');
     const [search, setSearch] = useState('');
+    const [range, setRange] = useState(null);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const recipesTotal = 20;
-    const recipesPerPage = 7;
+    const currentPageNumber = currentPage * itemsPerPage - itemsPerPage;
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const prevPage = () => {
+        if (currentPage === 1) return;
+        setCurrentPage(currentPage - 1);
+    };
+    const nextPage = () => {
+        setCurrentPage(currentPage + 1);
+    };
 
-    useEffect(() => {
-        const sortRecipes = (type) => {
-            const types = {
-                all: 'all',
-                popularity: 'popularity',
-                name: 'name',
-            };
-            const sortProperty = types[type];
-            const sorted = [...recipes]
-                .filter((recipe) =>
-                    recipe.name.toLowerCase().includes(search.toLowerCase())
-                )
-                .sort((a, b) => b[sortProperty] - a[sortProperty]);
-            setSortRecipes(sorted);
-        };
-
-        sortRecipes(sortType);
-    }, [search, sortType]);
+    const sorted = recipes
+        .filter((recipe) => {
+            return (
+                recipe.name.toLowerCase().includes(search.toLowerCase()) &&
+                recipe.time <= range
+            );
+        })
+        .sort((recipeA, recipeB) => {
+            if (sortType === 'popularity') {
+                return recipeB.popularity - recipeA.popularity;
+            }
+            if (sortType === 'name') {
+                return recipeA.name > recipeB.name ? 1 : -1;
+            }
+            return recipeA;
+        })
+        .splice(currentPageNumber, itemsPerPage);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -64,18 +72,25 @@ export const RecipesPage = () => {
 
     return (
         <Container>
-            <Filter setSortType={setSortType} handleChange={handleChange} />
+            <Filter
+                setSortType={setSortType}
+                handleChange={handleChange}
+                setSearch={setSearch}
+                range={range}
+                setRange={setRange}
+            />
             <Wrap>
                 <Title>Recipes</Title>
-                {sortRecipes.map((card) => {
+                {sorted.map((card) => {
                     return <CardRecipesPage card={card} key={card.id} />;
                 })}
                 <Pagination
-                    recipesPerPage={recipesPerPage}
-                    recipesTotal={recipesTotal}
                     paginate={paginate}
-                    currentPage={currentPage}
+                    totalRecipes={recipes.length}
+                    itemsPerPage={itemsPerPage}
                 />
+                <button onClick={prevPage}>Prev Page</button>
+                <button onClick={nextPage}>Next Page</button>
             </Wrap>
         </Container>
     );
