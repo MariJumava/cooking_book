@@ -1,10 +1,5 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import styled from 'styled-components';
-
-const Container = styled.div`
-    display: flex;
-    margin-right: 40px;
-`;
 
 const Wrap = styled.div`
     display: flex;
@@ -20,9 +15,10 @@ const Wrap = styled.div`
     border-radius: 10px;
 `;
 
-const Div = styled.div`
+const Container = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;
 
 const Title = styled.h2`
@@ -35,17 +31,25 @@ const Title = styled.h2`
     color: #181818;
 `;
 
-const Clear = styled.p`
+const ClearForm = styled.div`
     font-family: Nunito;
     font-size: 14px;
     line-height: 19px;
+    cursor: pointer;
     color: #ffbc01;
 `;
 
-const Select = styled.select`
+const StyledInput = styled.input`
+    width: 210px;
+    padding: 5px;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+`;
+
+const StyledSelect = styled.select`
     width: 224px;
     height: 40px;
-    padding: 10px;
+    padding: 7px;
     font-family: Nunito;
     font-style: normal;
     font-size: 16px;
@@ -55,29 +59,63 @@ const Select = styled.select`
     border-radius: 4px;
 `;
 
-export const Filter = () => {
-    const [value, setValue] = useState('');
+const Slider = styled.input`
+    width: 224px;
+`;
+
+const Time = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    color: #ffbc01;
+`;
+
+export const Filter = ({
+    setSortType,
+    handleChange,
+    setSearch,
+    range,
+    setRange,
+}) => {
+    const clearForm = () => {
+        setSearch('');
+        setSortType('all');
+        setRange();
+    };
 
     return (
-        <Container>
-            <Wrap>
-                <Div>
-                    <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
-                    <Clear>clear all</Clear>
-                </Div>
-                <Title>Sort by</Title>
-                <Select
-                    value={value}
-                    onChange={(event) => {
-                        setValue(event.target.value);
-                    }}
-                >
-                    <option value="all">All</option>
-                    <option value="popularity">Popularity</option>
-                    <option value="name">By name</option>
-                </Select>
-                <Title>Cooking Time</Title>
-            </Wrap>
-        </Container>
+        <Wrap>
+            <Container>
+                <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
+                <ClearForm onClick={clearForm}>clear all</ClearForm>
+            </Container>
+            <StyledInput
+                type="text"
+                placeholder="Search by name..."
+                onChange={handleChange}
+            />
+            <Title>Sort by:</Title>
+            <StyledSelect
+                onChange={(event) => {
+                    setSortType(event.target.value);
+                }}
+            >
+                <option value="all">All</option>
+                <option value="popularity">Popularity</option>
+                <option value="name">By name</option>
+            </StyledSelect>
+            <Title>Cooking Time:&nbsp;{range}&nbsp;minutes</Title>
+            <Slider
+                type="range"
+                min="10"
+                max="120"
+                step="5"
+                onChange={(event) => setRange(event.target.value)}
+            />
+            <Time>
+                <p>&lt;10min</p>
+                <p>2hours</p>
+            </Time>
+        </Wrap>
     );
 };
