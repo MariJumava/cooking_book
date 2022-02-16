@@ -1,3 +1,4 @@
+import { recipes } from '../Recipes';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -6,20 +7,16 @@ const Container = styled.div`
     padding-top: 30px;
 `;
 
-export const Pagination = ({ itemsPerPage, totalRecipes, paginate }) => {
-    const pageNumbers = [];
+export const Pagination = ({ paginate }) => {
+    const pageNumbers = [...Array(recipes.length).keys()];
 
-    const pageCount = Math.ceil(totalRecipes / itemsPerPage);
-    for (let i = 1; i <= pageCount; i++) {
-        pageNumbers.push(i);
-    }
     return (
         <Container>
             {pageNumbers.map((number) => {
                 return (
                     <div key={number}>
                         <button onClick={() => paginate(number)}>
-                            {number}
+                            {number + 1}
                         </button>
                     </div>
                 );
