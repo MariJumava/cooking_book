@@ -45,43 +45,10 @@ const StyledInput = styled.input`
     border-radius: 4px;
 `;
 
-const StyledSelect = styled.select`
-    width: 224px;
-    height: 40px;
-    padding: 7px;
-    font-family: Nunito;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 19px;
-    border: 1px solid #dadada;
-    box-sizing: border-box;
-    border-radius: 4px;
-`;
-
-const Slider = styled.input`
-    width: 224px;
-`;
-
-const Time = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding-right: 20px;
-    color: #ffbc01;
-`;
-
-export const Filter = ({
-    setSortType,
-    handleChange,
-    setSearch,
-    range,
-    setRange,
-}) => {
+export const FilterCookbook = ({ handleChange, setSearch }) => {
     const clearForm = () => {
         setSearch('');
-        setSortType('all');
-        setRange();
     };
-
     return (
         <Wrap>
             <Container>
@@ -93,28 +60,13 @@ export const Filter = ({
                 placeholder="Search by name..."
                 onChange={handleChange}
             />
-            <Title>Sort by</Title>
-            <StyledSelect
-                onChange={(event) => {
-                    setSortType(event.target.value);
-                }}
-            >
-                <option value="all">All</option>
-                <option value="popularity">Popularity</option>
-                <option value="name">By name</option>
-            </StyledSelect>
-            <Title>Cooking Time:&nbsp;{range}&nbsp;minutes</Title>
-            <Slider
-                type="range"
-                min="10"
-                max="120"
-                step="5"
-                onChange={(event) => setRange(event.target.value)}
-            />
-            <Time>
-                <p>&lt;10min</p>
-                <p>2hours</p>
-            </Time>
+            <Title>Cookbook type</Title>
+            <input type="checkbox" />
+            <span>Vegetarian</span>
+            <input type="checkbox" />
+            <span>With meat</span>
+            <input type="checkbox" />
+            <span>Baking</span>
         </Wrap>
     );
 };

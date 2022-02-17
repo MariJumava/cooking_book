@@ -3,37 +3,42 @@ import styled from 'styled-components';
 const Wrap = styled.div`
     position: fixed;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
+    z-index: 999;
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.8);
-    z-index: 8000;
 `;
 
 const Container = styled.div`
     position: absolute;
     top: 30%;
-    left: 30%;
+    left: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 35%;
-    padding: 1.2em;
-    margin: 10px;
+    width: 50%;
+    padding: 50px;
     background: #ffffff;
-    box-shadow: 0px 18px 60px rgba(24, 24, 24, 0.7);
     border-radius: 50px 10px 10px 10px;
 `;
 
 const ButtonClose = styled.button`
     height: 100px;
-    font-size: xx-large;
+    font-size: xxx-large;
     background-color: transparent;
     border: none;
     cursor: pointer;
     color: #dadada;
+`;
+
+const Img = styled.img`
+    width: 240px;
 `;
 
 export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
@@ -43,7 +48,7 @@ export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
             <Container>
                 <h2>{selectedRecipe.name}</h2>
                 <button>Clone to My CoookBok</button>
-                <img src={selectedRecipe.img} />
+                <Img src={selectedRecipe.img} />
                 <h4>Description:</h4>
                 <p>{selectedRecipe.description}</p>
             </Container>
