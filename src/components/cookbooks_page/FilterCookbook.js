@@ -44,11 +44,21 @@ const StyledInput = styled.input`
     border: 1px solid #dadada;
     border-radius: 4px;
 `;
-
-export const FilterCookbook = ({ handleChange, setSearch }) => {
+const Checkbox = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+export const FilterCookbook = ({
+    handleChange,
+    setSearch,
+    sortCategory,
+    setSortCategory,
+}) => {
     const clearForm = () => {
         setSearch('');
+        setSortCategory([]);
     };
+
     return (
         <Wrap>
             <Container>
@@ -61,12 +71,41 @@ export const FilterCookbook = ({ handleChange, setSearch }) => {
                 onChange={handleChange}
             />
             <Title>Cookbook type</Title>
-            <input type="checkbox" />
-            <span>Vegetarian</span>
-            <input type="checkbox" />
-            <span>With meat</span>
-            <input type="checkbox" />
-            <span>Baking</span>
+            <Checkbox>
+                <span>
+                    <input
+                        type="checkbox"
+                        name="vegetarian"
+                        сhecked={sortCategory.includes('vegetarian')}
+                        onChange={(event) => {
+                            setSortCategory(event.target.name);
+                        }}
+                    />
+                    &nbsp;<span>Vegetarian</span>
+                </span>
+                <span>
+                    <input
+                        type="checkbox"
+                        name="basic"
+                        сhecked={sortCategory.includes('basic')}
+                        onChange={(event) => {
+                            setSortCategory(event.target.name);
+                        }}
+                    />
+                    &nbsp;<span>With meat</span>
+                </span>
+                <span>
+                    <input
+                        type="checkbox"
+                        name="sweet"
+                        checked={sortCategory.includes('sweet')}
+                        onChange={(event) => {
+                            setSortCategory(event.target.name);
+                        }}
+                    />
+                    &nbsp;<span>Sweet</span>
+                </span>
+            </Checkbox>
         </Wrap>
     );
 };

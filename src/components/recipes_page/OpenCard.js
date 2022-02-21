@@ -23,11 +23,23 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 50%;
-    padding: 50px;
+    padding: 40px;
     background: #ffffff;
     border-radius: 50px 10px 10px 10px;
 `;
-
+const Title = styled.h2`
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+`;
+const Subtitle = styled.h4`
+    margin: auto;
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 23px;
+`;
 const ButtonClose = styled.button`
     height: 100px;
     font-size: xxx-large;
@@ -36,9 +48,30 @@ const ButtonClose = styled.button`
     cursor: pointer;
     color: #dadada;
 `;
+const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+const Section = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+`;
 
-const Img = styled.img`
-    width: 240px;
+const Button = styled.button`
+    height: 50px;
+    background: #ffbc01;
+    border-radius: 10px;
+    border: none;
+`;
+const Desc = styled.p`
+    width: 400px;
+`;
+const Time = styled.p`
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 23px;
 `;
 
 export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
@@ -46,11 +79,16 @@ export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
         <Wrap>
             <ButtonClose onClick={closeOpenCard}>&times;</ButtonClose>
             <Container>
-                <h2>{selectedRecipe.name}</h2>
-                <button>Clone to My CoookBok</button>
-                <Img src={selectedRecipe.img} />
-                <h4>Description:</h4>
-                <p>{selectedRecipe.description}</p>
+                <Header>
+                    <Title>{selectedRecipe.name}</Title>
+                    <Button>Clone to My CoookBok</Button>
+                </Header>
+                <Subtitle>Description:</Subtitle>
+                <Section>
+                    <img src={selectedRecipe.img} />
+                    <Desc>{selectedRecipe.description}</Desc>
+                </Section>
+                <Time>Cooking time:&nbsp;{selectedRecipe.time}min</Time>
             </Container>
         </Wrap>
     );

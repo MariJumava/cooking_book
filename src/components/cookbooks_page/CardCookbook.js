@@ -16,9 +16,9 @@ const Img = styled.img`
     height: 240px;
 `;
 
-export const CardCookbook = ({ card }) => {
+export const CardCookbook = ({ card, openSelectedCard }) => {
     return (
-        <Wrap>
+        <Wrap onClick={openSelectedCard}>
             <Img src={card.img} />
             <h4>{card.name}</h4>
             <p>{card.shortDescription}</p>
