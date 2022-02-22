@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-const Frame = styled.div`
-    width: 290px;
-    margin-right: 24px;
+const Wrap = styled.div`
+    width: 280px;
+    height: fit-content;
+    padding: 35px 15px;
+    margin: 0 20px 24px 0;
     text-align: center;
     background: #ffffff;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
@@ -12,15 +14,14 @@ const Frame = styled.div`
 const Img = styled.img`
     width: 240px;
     height: 240px;
-    margin-top: 40px;
-    margin-right: 24px;
 `;
 
-export const Card = ({ card }) => {
+export const CardCookbook = ({ card, openSelectedCard }) => {
     return (
-        <Frame>
+        <Wrap onClick={openSelectedCard}>
             <Img src={card.img} />
             <h4>{card.name}</h4>
-        </Frame>
+            <p>{card.shortDescription}</p>
+        </Wrap>
     );
 };

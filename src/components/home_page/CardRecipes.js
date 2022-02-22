@@ -5,6 +5,7 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
+    z-index: 100;
 `;
 
 export const CardRecipes = ({ recipes }) => {

@@ -1,4 +1,3 @@
-//import { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -94,7 +93,7 @@ export const Filter = ({
                 placeholder="Search by name..."
                 onChange={handleChange}
             />
-            <Title>Sort by:</Title>
+            <Title>Sort by</Title>
             <StyledSelect
                 onChange={(event) => {
                     setSortType(event.target.value);
