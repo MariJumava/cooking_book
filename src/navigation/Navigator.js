@@ -4,13 +4,17 @@ import { CookbookPage } from '../components/cookbooks_page/CookbookPage.js';
 import { Footer } from '../components/Footer.js';
 import { Navbar } from '../components/Navbar.js';
 import { RecipesPage } from '../components/recipes_page/RecipesPage.js';
+import { SignIn } from '../components/login/SignIn.js';
 
 export const Navigator = () => {
     return (
         <Router>
             <Navbar />
             <Routes>
-                <Route exact path="/" element={<App />} />
+                <Route path="/signin" element={<SignIn />} />
+            </Routes>
+            <Routes>
+                <Route path="/" element={<App />} />
             </Routes>
             <Routes>
                 <Route path="/recipes" element={<RecipesPage />} />
