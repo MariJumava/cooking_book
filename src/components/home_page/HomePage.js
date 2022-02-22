@@ -1,6 +1,8 @@
-import main_picture from '../../pictures/main_picture.png';
 import { recipes } from '../Recipes';
 import { CardRecipes } from './CardRecipes';
+import pear_right from '../../pictures/pear_right.png';
+import pear_left from '../../pictures/pear_left.png';
+import main_picture from '../../pictures/main_picture.png';
 import styled from 'styled-components';
 
 const Wrap = styled.section`
@@ -32,13 +34,38 @@ const Title = styled.h2`
 `;
 
 const Img = styled.img`
-    width: 1440px;
+    width: 1400px;
 `;
-
+const ImgTitle = styled.h1`
+    position: absolute;
+    width: 740px;
+    left: 165px;
+    top: 251px;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 72px;
+    text-transform: capitalize;
+    color: #ffffff;
+`;
 const Section = styled.section`
-    width: 100%;
+    width: 1400px;
     height: 800px;
+    margin-bottom: 24px;
+    border-radius: 10px 50px;
     background: #ffbc01;
+`;
+const ImgPearRight = styled.img`
+    position: absolute;
+    left: 70%;
+    height: 800px;
+    z-index: 1;
+`;
+const ImgPearLeft = styled.img`
+    position: absolute;
+    right: 75%;
+    top: 150%;
+    z-index: 1;
 `;
 
 const recipesBaking = recipes
@@ -52,14 +79,19 @@ const recipesSweet = recipes.filter((r) => r.category === 'sweet').slice(0, 3);
 export const HomePage = () => {
     return (
         <Wrap>
+            <ImgTitle>
+                Find and create your favourite cookbooks And Recipies
+            </ImgTitle>
             <Img src={main_picture} />
             <Subtitle>Users choice</Subtitle>
             <Title>Highest-Rated Recipes</Title>
             <CardRecipes recipes={recipesBaking} />
+            <ImgPearLeft src={pear_left} />
             <Subtitle>Our choice</Subtitle>
             <Title>Most Popular CookBooks</Title>
             <CardRecipes recipes={recipesBasic} />
             <Section>
+                <ImgPearRight src={pear_right} />
                 <Subtitle primary>Top 10</Subtitle>
                 <Title>Trending Recepies</Title>
                 <CardRecipes recipes={recipesSweet} />

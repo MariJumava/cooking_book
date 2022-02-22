@@ -35,7 +35,7 @@ const Title = styled.h2`
     line-height: 48px;
 `;
 const Subtitle = styled.h4`
-    margin: auto;
+    margin: 0;
     font-family: Montserrat;
     font-style: normal;
     font-size: 23px;
@@ -56,7 +56,7 @@ const Header = styled.div`
 const Section = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
 `;
 
 const Button = styled.button`
@@ -83,10 +83,12 @@ export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
                     <Title>{selectedRecipe.name}</Title>
                     <Button>Clone to My CoookBok</Button>
                 </Header>
-                <Subtitle>Description:</Subtitle>
                 <Section>
                     <img src={selectedRecipe.img} />
-                    <Desc>{selectedRecipe.description}</Desc>
+                    <div>
+                        <Subtitle>Description:</Subtitle>
+                        <Desc>{selectedRecipe.description}</Desc>
+                    </div>
                 </Section>
                 <Time>Cooking time:&nbsp;{selectedRecipe.time}min</Time>
             </Container>

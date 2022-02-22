@@ -13,6 +13,7 @@ const Img = styled.img`
     width: 240px;
     height: 240px;
     margin-top: 40px;
+    margin-right: 24px;
 `;
 
 export const Card = ({ card }) => {

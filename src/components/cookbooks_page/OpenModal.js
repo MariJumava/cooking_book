@@ -1,3 +1,5 @@
+import { recipes } from '../Recipes';
+import { OpenModalCard } from './OpenModalCard';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -44,24 +46,81 @@ const Title = styled.h2`
     line-height: 48px;
 `;
 const Subtitle = styled.h4`
-    margin: auto;
+    margin: 0;
     font-family: Montserrat;
     font-style: normal;
     font-size: 23px;
 `;
+const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+const AddButton = styled.button`
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: #ffbc01;
+    border: 1px solid #ffbc01;
+    border-radius: 10px;
+`;
+const Section = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px;
+`;
 const Desc = styled.p`
     width: 400px;
 `;
+const Item = styled.li`
+    margin-top: 7px;
+    font-family: Nunito;
+    font-weight: normal;
+    font-size: 15px;
+    color: #ffbc01;
+`;
+const ItemText = styled.span`
+    color: #181818;
+`;
+
+const randomRecipes = recipes.filter((r) => r.category === 'sweet').slice(0, 2);
 
 export const OpenModal = ({ selectedCard, closeModalCard }) => {
     return (
         <Wrap>
             <ButtonClose onClick={closeModalCard}>&times;</ButtonClose>
             <Container>
-                <Title>{selectedCard.name}</Title>
-                <Subtitle>Description:</Subtitle>
-                <img src={selectedCard.img} />
-                <Desc>{selectedCard.description}</Desc>
+                <Header>
+                    <Title>{selectedCard.name}</Title>
+                    <AddButton>+</AddButton>
+                </Header>
+                <Section>
+                    <img src={selectedCard.img} />
+                    <div>
+                        <Subtitle>Description:</Subtitle>
+                        <Desc>{selectedCard.shortDescription}</Desc>
+                        <Subtitle>
+                            Ingredients:
+                            <Item>
+                                <ItemText>first ingredient, 100g</ItemText>
+                            </Item>
+                            <Item>
+                                <ItemText>second ingredient, 200g</ItemText>
+                            </Item>
+                            <Item>
+                                <ItemText>third ingredient, 1400g</ItemText>
+                            </Item>
+                            <Item>
+                                <ItemText>fourth ingredient, 100g</ItemText>
+                            </Item>
+                        </Subtitle>
+                    </div>
+                </Section>
+                <Subtitle>Recipes</Subtitle>
+                {randomRecipes.map((card) => {
+                    return <OpenModalCard card={card} key={card.id} />;
+                })}
             </Container>
         </Wrap>
     );
