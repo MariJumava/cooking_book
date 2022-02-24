@@ -5,6 +5,7 @@ import { Footer } from '../components/Footer.js';
 import { Navbar } from '../components/Navbar.js';
 import { RecipesPage } from '../components/recipes_page/RecipesPage.js';
 import { SignIn } from '../components/login/SignIn.js';
+import { UserPage } from '../components/user_page/UserPage.js';
 
 export const Navigator = () => {
     return (
@@ -21,6 +22,9 @@ export const Navigator = () => {
             </Routes>
             <Routes>
                 <Route path="/cookbook" element={<CookbookPage />} />
+            </Routes>
+            <Routes>
+                <Route path="/user" element={<UserPage />} />
             </Routes>
             <Footer />
         </Router>

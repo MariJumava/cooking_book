@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddRecipe } from '../../redux/actions';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -75,13 +78,30 @@ const Time = styled.p`
 `;
 
 export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
+    const myRecipes = useSelector((state) => state.user.myrecipes);
+    const [showButtonClone, setShowButtonClone] = useState(false);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (myRecipes.findIndex((x) => x.id === selectedRecipe.id) < 0)
+            setShowButtonClone(true);
+        else setShowButtonClone(false);
+    }, [selectedRecipe, myRecipes]);
+
+    const cloneRecipe = () => {
+        dispatch(AddRecipe(selectedRecipe));
+    };
     return (
         <Wrap>
             <ButtonClose onClick={closeOpenCard}>&times;</ButtonClose>
             <Container>
                 <Header>
                     <Title>{selectedRecipe.name}</Title>
-                    <Button>Clone to My CoookBok</Button>
+                    {showButtonClone ? (
+                        <Button onClick={cloneRecipe}>
+                            Clone to My Recipes
+                        </Button>
+                    ) : null}
                 </Header>
                 <Section>
                     <img src={selectedRecipe.img} />

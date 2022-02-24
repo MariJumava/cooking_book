@@ -1,0 +1,4 @@
+export const ACTION_TYPES = {
+    ADD_RECIPE: 'ADD_RECIPE',
+    DELETE_RECIPE: 'DELETE_RECIPE',
+};

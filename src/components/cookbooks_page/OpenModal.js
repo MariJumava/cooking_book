@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddRecipe } from '../../redux/actions';
 import { recipes } from '../Recipes';
 import { OpenModalCard } from './OpenModalCard';
 import styled from 'styled-components';
@@ -87,13 +90,28 @@ const ItemText = styled.span`
 const randomRecipes = recipes.filter((r) => r.category === 'sweet').slice(0, 2);
 
 export const OpenModal = ({ selectedCard, closeModalCard }) => {
+    const myRecipes = useSelector((state) => state.user.myrecipes);
+    const [showButtonAdd, setShowButtonAdd] = useState(false);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (myRecipes.findIndex((x) => x.id === selectedCard.id) < 0)
+            setShowButtonAdd(true);
+        else setShowButtonAdd(false);
+    }, [selectedCard, myRecipes]);
+
+    const cloneRecipe = () => {
+        dispatch(AddRecipe(selectedCard));
+    };
     return (
         <Wrap>
             <ButtonClose onClick={closeModalCard}>&times;</ButtonClose>
             <Container>
                 <Header>
                     <Title>{selectedCard.name}</Title>
-                    <AddButton>+</AddButton>
+                    {showButtonAdd ? (
+                        <AddButton onClick={cloneRecipe}>+</AddButton>
+                    ) : null}
                 </Header>
                 <Section>
                     <img src={selectedCard.img} />

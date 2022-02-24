@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { recipes } from '../Recipes';
+import { useSelector } from 'react-redux';
 import { CardCookbook } from './CardCookbook';
 import { FilterCookbook } from './FilterCookbook';
 import { OpenModal } from './OpenModal';
@@ -35,6 +35,7 @@ const Title = styled.h2`
 `;
 
 export const CookbookPage = () => {
+    const recipes = useSelector((state) => state.recipes);
     const [showOpenModal, setShowOpenModal] = useState(false);
     const [selectedCardId, setSelectedCardId] = useState(null);
     const [search, setSearch] = useState('');
@@ -57,7 +58,7 @@ export const CookbookPage = () => {
 
     const selectedCard = useMemo(
         () => recipes.find((el) => el.id === selectedCardId),
-        [selectedCardId]
+        [selectedCardId, recipes]
     );
 
     const openSelectedCard = (cardId) => {

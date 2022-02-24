@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { recipes } from '../Recipes';
+import { useSelector } from 'react-redux';
 import { Filter } from './Filter';
 import { CardRecipesPage } from './CardRecipesPage';
 import { Pagination } from './Pagination';
@@ -32,6 +32,7 @@ const Title = styled.h2`
 const itemsPerPage = 5;
 
 export const RecipesPage = () => {
+    const recipes = useSelector((state) => state.recipes);
     const [showOpenCard, setShowOpenCard] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState(null);
 
@@ -75,7 +76,7 @@ export const RecipesPage = () => {
 
     const selectedRecipe = useMemo(
         () => recipes.find((el) => el.id === selectedItemId),
-        [selectedItemId]
+        [selectedItemId, recipes]
     );
 
     const openCard = (itemId) => {
