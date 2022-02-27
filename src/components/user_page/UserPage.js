@@ -1,8 +1,8 @@
-import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { UserRecipes } from './UserRecipes';
 import { UserSettings } from './UserSettings';
-import user_photo from '../../pictures/user/user_photo.png';
+import { OpenModalMyRecipes } from './OpenModalMyRecipes';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -11,14 +11,17 @@ const Wrap = styled.div`
     background: #f7f7f7;
 `;
 const User = styled.div`
-    display: flex;
-    align-items: flex-end;
+    width: 500px;
+    margin-left: 40px;
     margin-bottom: 50px;
+`;
+const UserData = styled.div`
+    display: flex;
+    align-items: center;
 `;
 const Name = styled.h2`
     font-size: 40px;
     line-height: 48px;
-    margin-left: 30px;
 `;
 const Title = styled.h2`
     margin-right: 35px;
@@ -40,8 +43,11 @@ const WrapRecipes = styled.div`
 `;
 
 export const UserPage = () => {
+    const user = useSelector((state) => state.user);
     const recipes = useSelector((state) => state.user.myrecipes);
     const [showUserSettings, setShowUserSettings] = useState(false);
+    const [showOpenModal, setShowOpenModal] = useState(false);
+    const [selectedCard, setSelectedCard] = useState(null);
 
     const showMyRecipes = () => {
         setShowUserSettings(false);
@@ -50,21 +56,47 @@ export const UserPage = () => {
     const showSettings = () => {
         setShowUserSettings(true);
     };
+
+    const openSelectedCard = (id) => {
+        setShowOpenModal(true);
+        setSelectedCard(() => recipes.find((el) => el.id === id));
+    };
+
+    const closeModalCard = () => {
+        setShowOpenModal(false);
+    };
     return (
         <Wrap>
-            <User>
-                <img src={user_photo} />
-                <Name>John Doe</Name>
-            </User>
+            <UserData>
+                <img src={user.img} />
+                <User>
+                    <Name>{user.name}</Name>
+                    <p>{user.status}</p>
+                </User>
+            </UserData>
             <Container>
                 <div>
                     <Title onClick={showMyRecipes}>My Recipes</Title>
                     {showUserSettings
                         ? null
                         : recipes.map((card) => {
-                              return <UserRecipes card={card} key={card.id} />;
+                              return (
+                                  <UserRecipes
+                                      card={card}
+                                      key={card.id}
+                                      openSelectedCard={() =>
+                                          openSelectedCard(card.id)
+                                      }
+                                  />
+                              );
                           })}
                 </div>
+                {showOpenModal ? (
+                    <OpenModalMyRecipes
+                        selectedCard={selectedCard}
+                        closeModalCard={closeModalCard}
+                    />
+                ) : null}
                 <Title onClick={showSettings}>My Settings</Title>
                 {showUserSettings ? <UserSettings /> : null}
             </Container>

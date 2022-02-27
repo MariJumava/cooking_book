@@ -32,20 +32,22 @@ const ButtonDelete = styled.button`
     border-radius: 10px;
     cursor: pointer;
 `;
-export const UserRecipes = ({ card }) => {
+export const UserRecipes = ({ card, openSelectedCard }) => {
     const dispatch = useDispatch();
     const deleteRecipe = (id) => {
         dispatch(DeleteRecipe(id));
     };
+    const removeRecipe = (event) => {
+        event.stopPropagation();
+        deleteRecipe(card.id);
+    };
     return (
-        <Frame>
+        <Frame onClick={openSelectedCard}>
             <img src={card.img} />
             <Description>
                 <Header>
                     <h4>{card.name}</h4>
-                    <ButtonDelete onClick={() => deleteRecipe(card.id)}>
-                        &times;
-                    </ButtonDelete>
+                    <ButtonDelete onClick={removeRecipe}>&times;</ButtonDelete>
                 </Header>
                 <p>{card.shortDescription}</p>
             </Description>

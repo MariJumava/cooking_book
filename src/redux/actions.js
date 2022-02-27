@@ -13,3 +13,23 @@ export const DeleteRecipe = (id) => {
         payload: id,
     };
 };
+
+export const EditUserName = (name) => {
+    return {
+        type: ACTION_TYPES.EDIT_NAME_USER,
+        payload: name,
+    };
+};
+
+export const EditUserEmail = (email) => {
+    return {
+        type: ACTION_TYPES.EDIT_EMAIL_USER,
+        payload: email,
+    };
+};
+export const AddUserNotes = (id, notes) => {
+    return {
+        type: ACTION_TYPES.ADD_USER_NOTES,
+        payload: { id, notes },
+    };
+};

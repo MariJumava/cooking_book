@@ -13,15 +13,6 @@ const Img = styled.img`
     height: 200px;
     margin-right: 24px;
 `;
-const ButtonSave = styled.button`
-    width: 60px;
-    height: 35px;
-    font-size: 15px;
-    color: #ffbc01;
-    background-color: white;
-    border: 1px solid #ffbc01;
-    border-radius: 10px;
-`;
 
 export const OpenModalCard = ({ card }) => {
     return (
@@ -30,7 +21,6 @@ export const OpenModalCard = ({ card }) => {
             <div>
                 <h4>{card.name}</h4>
                 <p>{card.shortDescription}</p>
-                <ButtonSave>Save</ButtonSave>
             </div>
         </Frame>
     );

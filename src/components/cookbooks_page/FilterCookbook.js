@@ -48,6 +48,7 @@ const Checkbox = styled.div`
     display: flex;
     flex-direction: column;
 `;
+
 export const FilterCookbook = ({
     handleChange,
     setSearch,
@@ -63,7 +64,7 @@ export const FilterCookbook = ({
         <Wrap>
             <Container>
                 <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
-                <ClearForm onClick={clearForm}>clear all</ClearForm>
+                <ClearForm onClick={() => clearForm()}>clear all</ClearForm>
             </Container>
             <StyledInput
                 type="text"

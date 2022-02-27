@@ -87,11 +87,13 @@ const ItemText = styled.span`
     color: #181818;
 `;
 
-const randomRecipes = recipes.filter((r) => r.category === 'sweet').slice(0, 2);
-
 export const OpenModal = ({ selectedCard, closeModalCard }) => {
+    const randomRecipes = recipes
+        .filter((r) => r.category === 'sweet')
+        .slice(0, 2);
     const myRecipes = useSelector((state) => state.user.myrecipes);
     const [showButtonAdd, setShowButtonAdd] = useState(false);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -103,6 +105,7 @@ export const OpenModal = ({ selectedCard, closeModalCard }) => {
     const cloneRecipe = () => {
         dispatch(AddRecipe(selectedCard));
     };
+
     return (
         <Wrap>
             <ButtonClose onClick={closeModalCard}>&times;</ButtonClose>

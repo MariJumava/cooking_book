@@ -1,4 +1,3 @@
-//import { useMemo } from 'react';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -80,14 +79,14 @@ export const Filter = ({
     const clearForm = () => {
         setSearch('');
         setSortType('all');
-        setRange();
+        setRange(10);
     };
 
     return (
         <Wrap>
             <Container>
                 <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
-                <ClearForm onClick={clearForm}>clear all</ClearForm>
+                <ClearForm onClick={() => clearForm()}>clear all</ClearForm>
             </Container>
             <StyledInput
                 type="text"

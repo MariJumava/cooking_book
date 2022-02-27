@@ -1,4 +1,4 @@
-import { recipes } from '../Recipes';
+import { useSelector } from 'react-redux';
 import { CardRecipes } from './CardRecipes';
 import pear_right from '../../pictures/pear_right.png';
 import pear_left from '../../pictures/pear_left.png';
@@ -68,15 +68,20 @@ const ImgPearLeft = styled.img`
     z-index: 1;
 `;
 
-const recipesBaking = recipes
-    .filter((r) => r.category === 'vegetarian')
-    .slice(1, 4);
-
-const recipesBasic = recipes.filter((r) => r.category === 'basic').slice(1, 5);
-
-const recipesSweet = recipes.filter((r) => r.category === 'sweet').slice(0, 3);
-
 export const HomePage = () => {
+    const recipes = useSelector((state) => state.recipes);
+    const recipesVeg = recipes
+        .filter((r) => r.category === 'vegetarian')
+        .slice(1, 4);
+
+    const recipesBasic = recipes
+        .filter((r) => r.category === 'basic')
+        .slice(1, 5);
+
+    const recipesSweet = recipes
+        .filter((r) => r.category === 'sweet')
+        .slice(0, 3);
+
     return (
         <Wrap>
             <ImgTitle>
@@ -85,7 +90,7 @@ export const HomePage = () => {
             <Img src={main_picture} />
             <Subtitle>Users choice</Subtitle>
             <Title>Highest-Rated Recipes</Title>
-            <CardRecipes recipes={recipesBaking} />
+            <CardRecipes recipes={recipesVeg} />
             <ImgPearLeft src={pear_left} />
             <Subtitle>Our choice</Subtitle>
             <Title>Most Popular CookBooks</Title>

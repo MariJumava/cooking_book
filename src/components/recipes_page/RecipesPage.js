@@ -116,7 +116,7 @@ export const RecipesPage = () => {
                         />
                     );
                 })}
-                <Pagination paginate={paginate} />
+                <Pagination paginate={paginate} recipes={recipes} />
                 <button onClick={nextPage}>Next Page</button>
                 <button onClick={prevPage}>Prev Page</button>
             </Wrap>

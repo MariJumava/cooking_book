@@ -80,6 +80,7 @@ const Time = styled.p`
 export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
     const myRecipes = useSelector((state) => state.user.myrecipes);
     const [showButtonClone, setShowButtonClone] = useState(false);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
