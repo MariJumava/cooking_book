@@ -1,8 +1,9 @@
-import { recipes } from '../Recipes';
+import { useSelector } from 'react-redux';
 import { CardRecipes } from './CardRecipes';
 import pear_right from '../../pictures/pear_right.png';
 import pear_left from '../../pictures/pear_left.png';
 import main_picture from '../../pictures/main_picture.png';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Wrap = styled.section`
@@ -12,25 +13,20 @@ const Wrap = styled.section`
 `;
 
 const Subtitle = styled.h5`
-    margin: 100px 0 0 0;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    text-align: center;
+    margin-top: 100px;
+    font-family: ${baseTheme.fontFamily.primary};
+    font-weight: ${baseTheme.fontWeight.normal};
+    font-size: ${baseTheme.fontSize.subtitle}px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: ${(props) => (props.primary ? '#ffffff' : '#ffbc01')};
+    color: ${(props) =>
+        props.primary ? baseTheme.colors.primary : baseTheme.colors.secondary};
 `;
 
 const Title = styled.h2`
-    text-align: center;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 48px;
-    color: #181818;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-size: ${baseTheme.fontSize.title}px;
+    color: ${baseTheme.colors.font};
 `;
 
 const Img = styled.img`
@@ -41,19 +37,18 @@ const ImgTitle = styled.h1`
     width: 740px;
     left: 165px;
     top: 251px;
-    font-family: Montserrat;
-    font-weight: 600;
+    font-family: ${baseTheme.fontFamily.secondary};
     font-size: 56px;
-    line-height: 72px;
     text-transform: capitalize;
-    color: #ffffff;
+    color: ${baseTheme.colors.primary};
 `;
 const Section = styled.section`
     width: 1400px;
     height: 800px;
+    text-align: center;
     margin-bottom: 24px;
     border-radius: 10px 50px;
-    background: #ffbc01;
+    background: ${baseTheme.colors.secondary};
 `;
 const ImgPearRight = styled.img`
     position: absolute;
@@ -68,15 +63,21 @@ const ImgPearLeft = styled.img`
     z-index: 1;
 `;
 
-const recipesBaking = recipes
-    .filter((r) => r.category === 'vegetarian')
-    .slice(1, 4);
-
-const recipesBasic = recipes.filter((r) => r.category === 'basic').slice(1, 5);
-
-const recipesSweet = recipes.filter((r) => r.category === 'sweet').slice(0, 3);
-
 export const HomePage = () => {
+    const recipes = useSelector((state) => state.recipes);
+
+    const recipesVeg = recipes
+        .filter((r) => r.category === 'vegetarian')
+        .slice(1, 4);
+
+    const recipesBasic = recipes
+        .filter((r) => r.category === 'basic')
+        .slice(1, 5);
+
+    const recipesSweet = recipes
+        .filter((r) => r.category === 'sweet')
+        .slice(0, 3);
+
     return (
         <Wrap>
             <ImgTitle>
@@ -85,7 +86,7 @@ export const HomePage = () => {
             <Img src={main_picture} />
             <Subtitle>Users choice</Subtitle>
             <Title>Highest-Rated Recipes</Title>
-            <CardRecipes recipes={recipesBaking} />
+            <CardRecipes recipes={recipesVeg} />
             <ImgPearLeft src={pear_left} />
             <Subtitle>Our choice</Subtitle>
             <Title>Most Popular CookBooks</Title>

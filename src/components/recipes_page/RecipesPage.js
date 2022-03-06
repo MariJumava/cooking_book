@@ -1,16 +1,17 @@
 import { useMemo, useState } from 'react';
-import { recipes } from '../Recipes';
+import { useSelector } from 'react-redux';
 import { Filter } from './Filter';
 import { CardRecipesPage } from './CardRecipesPage';
 import { Pagination } from './Pagination';
 import { OpenCard } from './OpenCard';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
-    background: #f7f7f7;
+    background: ${baseTheme.colors.background};
 `;
 
 const Wrap = styled.div`
@@ -21,17 +22,17 @@ const Wrap = styled.div`
 `;
 
 const Title = styled.h2`
-    font-family: Montserrat;
+    font-family: ${baseTheme.fontFamily.secondary};
     font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 24px;
+    font-weight: ${baseTheme.fontWeight.weight};
+    font-size: ${baseTheme.fontSize.titleCook}px;
     align-items: center;
-    color: #181818;
+    color: ${baseTheme.colors.font};
 `;
 const itemsPerPage = 5;
 
 export const RecipesPage = () => {
+    const recipes = useSelector((state) => state.recipes);
     const [showOpenCard, setShowOpenCard] = useState(false);
     const [selectedItemId, setSelectedItemId] = useState(null);
 
@@ -75,7 +76,7 @@ export const RecipesPage = () => {
 
     const selectedRecipe = useMemo(
         () => recipes.find((el) => el.id === selectedItemId),
-        [selectedItemId]
+        [selectedItemId, recipes]
     );
 
     const openCard = (itemId) => {
@@ -115,7 +116,7 @@ export const RecipesPage = () => {
                         />
                     );
                 })}
-                <Pagination paginate={paginate} />
+                <Pagination paginate={paginate} recipes={recipes} />
                 <button onClick={nextPage}>Next Page</button>
                 <button onClick={prevPage}>Prev Page</button>
             </Wrap>

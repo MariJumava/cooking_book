@@ -24,6 +24,7 @@ export const recipes = [
         category: 'basic',
         time: 15,
         popularity: 8,
+        notes: '',
     },
     {
         id: 2,
@@ -36,6 +37,7 @@ export const recipes = [
         category: 'basic',
         time: 30,
         popularity: 7,
+        notes: '',
     },
     {
         id: 3,
@@ -48,6 +50,7 @@ export const recipes = [
         category: 'sweet',
         time: 10,
         popularity: 3,
+        notes: '',
     },
     {
         id: 4,
@@ -60,6 +63,7 @@ export const recipes = [
         category: 'sweet',
         time: 60,
         popularity: 9,
+        notes: '',
     },
     {
         id: 5,
@@ -72,6 +76,7 @@ export const recipes = [
         category: 'vegetarian',
         time: 25,
         popularity: 8,
+        notes: '',
     },
     {
         id: 6,
@@ -84,6 +89,7 @@ export const recipes = [
         category: 'basic',
         time: 35,
         popularity: 10,
+        notes: '',
     },
     {
         id: 7,
@@ -96,6 +102,7 @@ export const recipes = [
         category: 'sweet',
         time: 40,
         popularity: 6,
+        notes: '',
     },
     {
         id: 8,
@@ -108,6 +115,7 @@ export const recipes = [
         category: 'vegetarian',
         time: 10,
         popularity: 1,
+        notes: '',
     },
     {
         id: 9,
@@ -120,6 +128,7 @@ export const recipes = [
         category: 'basic',
         time: 60,
         popularity: 10,
+        notes: '',
     },
     {
         id: 10,
@@ -132,6 +141,7 @@ export const recipes = [
         category: 'vegetarian',
         time: 70,
         popularity: 5,
+        notes: '',
     },
     {
         id: 11,
@@ -144,6 +154,7 @@ export const recipes = [
         category: 'sweet',
         time: 100,
         popularity: 7,
+        notes: '',
     },
     {
         id: 12,
@@ -156,6 +167,7 @@ export const recipes = [
         category: 'basic',
         time: 80,
         popularity: 9,
+        notes: '',
     },
     {
         id: 13,
@@ -168,5 +180,6 @@ export const recipes = [
         category: 'vegetarian',
         time: 15,
         popularity: 2,
+        notes: '',
     },
 ];

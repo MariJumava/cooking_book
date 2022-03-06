@@ -1,4 +1,3 @@
-import { recipes } from '../Recipes';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -7,7 +6,7 @@ const Container = styled.div`
     padding-top: 30px;
 `;
 
-export const Pagination = ({ paginate }) => {
+export const Pagination = ({ paginate, recipes }) => {
     const pageNumbers = [...Array(recipes.length).keys()];
 
     return (
