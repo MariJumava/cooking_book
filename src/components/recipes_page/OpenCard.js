@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddRecipe } from '../../redux/actions';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -27,29 +28,26 @@ const Container = styled.div`
     justify-content: center;
     width: 50%;
     padding: 40px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     border-radius: 50px 10px 10px 10px;
 `;
 const Title = styled.h2`
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 48px;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-weight: ${baseTheme.fontWeight.weight};
+    font-size: ${baseTheme.fontSize.title}px;
 `;
 const Subtitle = styled.h4`
     margin: 0;
-    font-family: Montserrat;
-    font-style: normal;
-    font-size: 23px;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-size: ${baseTheme.fontSize.titleFilter}px;
 `;
 const ButtonClose = styled.button`
     height: 100px;
-    font-size: xxx-large;
+    font-size: ${baseTheme.fontSize.title}px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #dadada;
+    color: ${baseTheme.colors.border};
 `;
 const Header = styled.div`
     display: flex;
@@ -61,10 +59,9 @@ const Section = styled.div`
     justify-content: space-between;
     align-items: flex-start;
 `;
-
 const Button = styled.button`
     height: 50px;
-    background: #ffbc01;
+    background: ${baseTheme.colors.secondary};
     border-radius: 10px;
     border: none;
 `;
@@ -72,9 +69,8 @@ const Desc = styled.p`
     width: 400px;
 `;
 const Time = styled.p`
-    font-family: Montserrat;
-    font-style: normal;
-    font-size: 23px;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-size: ${baseTheme.fontSize.titleFilter}px;
 `;
 
 export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {

@@ -1,10 +1,11 @@
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Frame = styled.div`
     width: 290px;
     margin-right: 24px;
     text-align: center;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
 `;

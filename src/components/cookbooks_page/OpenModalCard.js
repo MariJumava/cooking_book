@@ -1,3 +1,4 @@
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Frame = styled.div`
@@ -5,7 +6,7 @@ const Frame = styled.div`
     align-items: flex-start;
     height: 200px;
     margin-top: 24px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
 `;

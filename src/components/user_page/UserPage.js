@@ -3,12 +3,13 @@ import { useSelector } from 'react-redux';
 import { UserRecipes } from './UserRecipes';
 import { UserSettings } from './UserSettings';
 import { OpenModalMyRecipes } from './OpenModalMyRecipes';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
     min-height: 700px;
     padding: 170px;
-    background: #f7f7f7;
+    background: ${baseTheme.colors.background};
 `;
 const User = styled.div`
     width: 500px;
@@ -20,17 +21,17 @@ const UserData = styled.div`
     align-items: center;
 `;
 const Name = styled.h2`
-    font-size: 40px;
+    font-size: ${baseTheme.fontSize.title}px;
     line-height: 48px;
 `;
 const Title = styled.h2`
     margin-right: 35px;
-    font-weight: 600;
-    font-size: 30px;
+    font-weight: ${baseTheme.fontWeight.weight};
+    font-size: ${baseTheme.fontSize.titleCook}px;
     line-height: 24px;
     cursor: pointer;
     :hover {
-        color: #ffbc01;
+        color: ${baseTheme.colors.secondary};
     }
 `;
 const Container = styled.div`
@@ -91,12 +92,13 @@ export const UserPage = () => {
                               );
                           })}
                 </div>
-                {showOpenModal ? (
+                {showOpenModal && (
                     <OpenModalMyRecipes
                         selectedCard={selectedCard}
                         closeModalCard={closeModalCard}
                     />
-                ) : null}
+                )}
+                {!showOpenModal && null}
                 <Title onClick={showSettings}>My Settings</Title>
                 {showUserSettings ? <UserSettings /> : null}
             </Container>

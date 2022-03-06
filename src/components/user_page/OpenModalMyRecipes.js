@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AddUserNotes } from '../../redux/actions';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -21,67 +22,60 @@ const Wrap = styled.div`
 const Container = styled.div`
     position: absolute;
     top: 30%;
-    left: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 50%;
     padding: 40px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     border-radius: 50px 10px 10px 10px;
 `;
 const Title = styled.h2`
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 48px;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-weight: ${baseTheme.fontWeight.weight};
+    font-size: ${baseTheme.fontSize.title}px;
 `;
 const Subtitle = styled.h4`
-    font-family: Montserrat;
-    font-style: normal;
-    font-size: 23px;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-size: ${baseTheme.fontSize.titleCook}px;
 `;
 const ButtonClose = styled.button`
     height: 100px;
-    font-size: xxx-large;
+    font-size: ${baseTheme.fontSize.title}px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: #dadada;
+    color: ${baseTheme.colors.border};
 `;
 const Time = styled.p`
-    font-family: Montserrat;
-    font-style: normal;
-    font-size: 23px;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-size: ${baseTheme.fontSize.titleFilter}px;
 `;
 const Textarea = styled.textarea`
     width: 600px;
-    height: fit-content;
     min-height: 100px;
     margin: 30px 0;
-    background: #ffffff;
-    border: 1px solid #dadada;
+    background: ${baseTheme.colors.primary};
+    border: 1px solid ${baseTheme.colors.border};
     box-sizing: border-box;
     border-radius: 10px;
 `;
 const Notes = styled.div`
     width: 570px;
-    height: fit-content;
     min-height: 100px;
     padding: 30px;
     margin-top: 30px;
-    font-size: 18px;
+    font-size: ${baseTheme.fontSize.titleFilter}px;
     box-shadow: 0px 0px 16px rgb(0 0 0 / 8%);
     border-radius: 10px;
 `;
 const Button = styled.button`
-    width: 70px;
+    width: 80px;
     height: 40px;
-    font-size: 15px;
-    color: '#ffbc01';
-    background-color: white;
-    border: 1px solid #ffbc01;
+    font-size: ${baseTheme.fontSize.subtitle}px;
+    color: ${baseTheme.colors.secondary};
+    background-color: ${baseTheme.colors.primary};
+    border: 1px solid ${baseTheme.colors.secondary};
     border-radius: 10px;
 `;
 
@@ -111,24 +105,22 @@ export const OpenModalMyRecipes = ({ selectedCard, closeModalCard }) => {
                 <Time>Cooking time:&nbsp;{selectedCard.time}min</Time>
 
                 <Subtitle>My Notes:</Subtitle>
-                {isEditView ? (
+                {isEditView && (
                     <Textarea
                         value={notes}
                         onChange={(event) => setNotes(event.target.value)}
-                    ></Textarea>
-                ) : (
-                    <Button primary onClick={showEditView}>
-                        add notes
-                    </Button>
+                    />
+                )}
+                {!isEditView && (
+                    <Button onClick={showEditView}>add notes</Button>
                 )}
 
-                {isEditView ? (
+                {isEditView && (
                     <Button onClick={() => saveChanges(selectedCard.id, notes)}>
                         Save
                     </Button>
-                ) : (
-                    <Notes>{notes}</Notes>
                 )}
+                {!isEditView && <Notes>{notes}</Notes>}
             </Container>
         </Wrap>
     );

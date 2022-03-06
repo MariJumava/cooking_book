@@ -54,7 +54,7 @@ export const reducer = (state = initialState, action) => {
                         if (x.id === action.payload.id) {
                             x.notes = action.payload.notes;
                         }
-                        return x;
+                        return { ...x, notes: action.payload.notes };
                     }),
                 },
             };

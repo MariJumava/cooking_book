@@ -1,33 +1,34 @@
 import { Link } from 'react-router-dom';
 import user from '../pictures/user/user.svg';
+import { baseTheme } from '../style/baseTheme';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 88px;
-    font-family: Nunito;
-    font-size: 25px;
-    color: #181818;
+    height: ${baseTheme.sizes.navbar.height}px;
+    font-family: ${baseTheme.fontFamily.primary};
+    font-size: ${baseTheme.fontSize.titleFilter}px;
+    color: ${baseTheme.colors.font};
 `;
 const Title = styled.h2`
     font-weight: normal;
-    font-size: 20px;
+    font-size: ${baseTheme.fontSize.titleFilter}px;
     :hover {
-        color: #ffbc01;
+        color: ${baseTheme.colors.secondary};
     }
 `;
 const Button = styled.button`
     width: 200px;
     height: 40px;
-    font-size: 20px;
-    color: #ffbc01;
-    background-color: #fff;
+    font-size: ${baseTheme.fontSize.titleFilter}px;
+    color: ${baseTheme.colors.secondary};
+    background-color: ${baseTheme.colors.primary};
     border: none;
     cursor: pointer;
     :hover {
-        color: #181818;
+        color: ${baseTheme.colors.font};
     }
 `;
 

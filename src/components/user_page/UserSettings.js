@@ -1,29 +1,28 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { EditUserName } from '../../redux/actions';
-import { EditUserEmail } from '../../redux/actions';
+import { EditUserName, EditUserEmail } from '../../redux/actions';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
     position: absolute;
     top: 570px;
     width: 600px;
-    margin-right: 35px;
     padding: 60px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
 `;
 const Title = styled.h2`
-    font-weight: 600;
-    font-size: 30px;
+    font-weight: ${baseTheme.fontWeight.normal};
+    font-size: ${baseTheme.fontSize.titleCook}px;
     line-height: 24px;
 `;
 const User = styled.p`
-    font-size: 18px;
+    font-size: ${baseTheme.fontSize.subtitle}px;
 `;
 const Edit = styled.p`
-    color: #ffbc01;
+    color: ${baseTheme.colors.secondary};
     cursor: pointer;
 `;
 const Container = styled.div`
@@ -35,16 +34,16 @@ const Input = styled.input`
     width: 250px;
     height: 30px;
     padding-left: 10px;
-    border: 1px solid #dadada;
+    border: 1px solid ${baseTheme.colors.border};
     box-sizing: border-box;
     border-radius: 10px;
 `;
 const ButtonSave = styled.button`
     width: 50px;
     height: 30px;
-    color: #ffbc01;
+    color: ${baseTheme.colors.secondary};
     background-color: white;
-    border: 1px solid #ffbc01;
+    border: 1px solid ${baseTheme.colors.secondary};
     border-radius: 10px;
 `;
 
@@ -69,7 +68,7 @@ export const UserSettings = () => {
             <Title>Personal information</Title>
             <Container>
                 <User>Name</User>
-                {isEditView ? (
+                {isEditView && (
                     <Input
                         type="text"
                         value={editableName}
@@ -77,18 +76,16 @@ export const UserSettings = () => {
                             setEditableName(event.target.value)
                         }
                     />
-                ) : (
-                    <User>{user.name}</User>
                 )}
-                {isEditView ? (
+                {!isEditView && <User>{user.name}</User>}
+                {isEditView && (
                     <ButtonSave onClick={saveChanges}>Save</ButtonSave>
-                ) : (
-                    <Edit onClick={showEditView}>Edit</Edit>
                 )}
+                {!isEditView && <Edit onClick={showEditView}>Edit</Edit>}
             </Container>
             <Container>
                 <User>Email</User>
-                {isEditView ? (
+                {isEditView && (
                     <Input
                         type="text"
                         value={editableEmail}
@@ -96,14 +93,12 @@ export const UserSettings = () => {
                             setEditableEmail(event.target.value)
                         }
                     />
-                ) : (
-                    <User>{user.email}</User>
                 )}
-                {isEditView ? (
+                {!isEditView && <User>{user.email}</User>}
+                {isEditView && (
                     <ButtonSave onClick={saveChanges}>Save</ButtonSave>
-                ) : (
-                    <Edit onClick={showEditView}>Edit</Edit>
                 )}
+                {!isEditView && <Edit onClick={showEditView}>Edit</Edit>}
             </Container>
         </Wrap>
     );

@@ -1,19 +1,11 @@
-// eslint-disable-next-line import/named
-import { Redirect, Route } from 'react-router-dom';
+import { Navigate } from 'react-router';
+import { SignIn } from './SignIn';
 
-export const ProtectedRoute = ({ component: Component, ...restOfProps }) => {
+export const ProtectedRoute = () => {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-    return (
-        <Route
-            {...restOfProps}
-            render={(props) =>
-                isAuthenticated ? (
-                    <Component {...props} />
-                ) : (
-                    <Redirect to="/signin" />
-                )
-            }
-        />
-    );
+    if (isAuthenticated) {
+        return <Navigate to="/user" />;
+    }
+    return <SignIn />;
 };

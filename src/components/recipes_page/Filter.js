@@ -1,15 +1,16 @@
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 272px;
-    height: 292px;
+    width: ${baseTheme.sizes.filterWidth}px;
+    height: ${baseTheme.sizes.filterHeight}px;
     margin-left: 100px;
     margin-top: 100px;
     padding: 20px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
 `;
@@ -21,52 +22,40 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    align-items: center;
-    color: #181818;
+    font-family: ${baseTheme.fontFamily.secondary};
+    font-weight: ${baseTheme.fontWeight.weight};
+    font-size: ${baseTheme.fontSize.titleFilter}px;
+    color: ${baseTheme.colors.font};
 `;
 
 const ClearForm = styled.div`
-    font-family: Nunito;
-    font-size: 14px;
-    line-height: 19px;
+    font-family: ${baseTheme.fontFamily.primary};
+    font-size: ${baseTheme.fontSize.subtitle}px;
     cursor: pointer;
-    color: #ffbc01;
+    color: ${baseTheme.colors.secondary};
 `;
 
 const StyledInput = styled.input`
     width: 210px;
     padding: 5px;
-    border: 1px solid #dadada;
+    border: 1px solid ${baseTheme.colors.border};
     border-radius: 4px;
 `;
 
 const StyledSelect = styled.select`
     width: 224px;
-    height: 40px;
-    padding: 7px;
-    font-family: Nunito;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 19px;
-    border: 1px solid #dadada;
-    box-sizing: border-box;
+    padding: 5px;
+    font-family: ${baseTheme.fontFamily.primary};
+    font-size: ${baseTheme.fontSize.subtitle}px;
+    border: 1px solid ${baseTheme.colors.border};
     border-radius: 4px;
-`;
-
-const Slider = styled.input`
-    width: 224px;
 `;
 
 const Time = styled.div`
     display: flex;
     justify-content: space-between;
     padding-right: 20px;
-    color: #ffbc01;
+    color: ${baseTheme.colors.secondary};
 `;
 
 export const Filter = ({
@@ -86,7 +75,7 @@ export const Filter = ({
         <Wrap>
             <Container>
                 <Title style={{ textTransform: 'uppercase' }}>Filter</Title>
-                <ClearForm onClick={() => clearForm()}>clear all</ClearForm>
+                <ClearForm onClick={clearForm}>clear all</ClearForm>
             </Container>
             <StyledInput
                 type="text"
@@ -104,7 +93,7 @@ export const Filter = ({
                 <option value="name">By name</option>
             </StyledSelect>
             <Title>Cooking Time:&nbsp;{range}&nbsp;minutes</Title>
-            <Slider
+            <input
                 type="range"
                 min="10"
                 max="120"

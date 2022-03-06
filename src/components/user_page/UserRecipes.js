@@ -1,12 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { DeleteRecipe } from '../../redux/actions';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Frame = styled.div`
     display: flex;
     width: 800px;
     margin-top: 40px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 50px 10px 10px 10px;
     cursor: pointer;
@@ -26,9 +27,9 @@ const Header = styled.div`
 const ButtonDelete = styled.button`
     width: 30px;
     height: 30px;
-    background-color: white;
-    color: #ffbc01;
-    border: 1px solid #ffbc01;
+    background-color: ${baseTheme.colors.primary};
+    color: ${baseTheme.colors.secondary};
+    border: 1px solid ${baseTheme.colors.secondary};
     border-radius: 10px;
     cursor: pointer;
 `;

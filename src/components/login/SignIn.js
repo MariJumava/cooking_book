@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import login from '../../pictures/login.png';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -21,40 +22,37 @@ const Form = styled.form`
     position: absolute;
     right: 20%;
     padding: 50px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
 `;
 const Title = styled.h2`
-    font-weight: bold;
-    font-size: 40px;
+    font-weight: ${baseTheme.fontWeight.weight};
+    font-size: ${baseTheme.fontSize.title}px;
 `;
 const Input = styled.input`
     width: 300px;
     height: 40px;
-    border: 1px solid #dadada;
+    border: 1px solid ${baseTheme.colors.border};
     box-sizing: border-box;
     border-radius: 8px;
 `;
 const Button = styled.button`
-    width: 300px;
     height: 40px;
-    background: #ffbc01;
+    background: ${baseTheme.colors.secondary};
     border-radius: 10px;
     border: none;
 `;
 const ButtonClear = styled.button`
-    width: 300px;
     height: 40px;
-    background: #ffffff;
+    background: ${baseTheme.colors.primary};
     border-radius: 10px;
-    border: 1px solid #dadada;
+    border: 1px solid ${baseTheme.colors.border};
 `;
 
 export const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    console.log('auth', localStorage.getItem('isAuthenticated'));
 
     const userEmail = (event) => {
         setEmail(event.target.value);

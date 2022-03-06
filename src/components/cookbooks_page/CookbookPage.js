@@ -3,13 +3,14 @@ import { useSelector } from 'react-redux';
 import { CardCookbook } from './CardCookbook';
 import { FilterCookbook } from './FilterCookbook';
 import { OpenModal } from './OpenModal';
+import { baseTheme } from '../../style/baseTheme';
 import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
-    background: #f7f7f7;
+    background: ${baseTheme.colors.background};
 `;
 
 const Wrap = styled.div`
@@ -24,14 +25,12 @@ const WrapTitle = styled.div`
 `;
 
 const Title = styled.h2`
-    font-family: Montserrat;
-    font-style: normal;
+    font-family: ${baseTheme.fontFamily.secondary};
     font-weight: 600;
-    font-size: 30px;
+    font-size: ${baseTheme.fontSize.titleCook}px;
     margin-top: 100px;
     margin-left: 40px;
-    line-height: 24px;
-    color: #181818;
+    color: ${baseTheme.colors.font};
 `;
 
 export const CookbookPage = () => {
