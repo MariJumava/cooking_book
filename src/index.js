@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { reducer } from './redux/reduser';
 import { Navigator } from './navigation/Navigator';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 
 const store = createStore(reducer);
