@@ -1,11 +1,11 @@
-import { Navigate } from 'react-router';
-import { SignIn } from './SignIn';
+import { Navigate } from 'react-router-dom';
 
-export const ProtectedRoute = () => {
+export const ProtectedRoute = ({ component }) => {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
 
     if (isAuthenticated) {
-        return <Navigate to="/user" />;
+        return component;
     }
-    return <SignIn />;
+
+    return <Navigate to="/signin" />;
 };

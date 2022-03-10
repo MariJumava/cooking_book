@@ -91,9 +91,11 @@ export const OpenModal = ({ selectedCard, closeModalCard }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (myRecipes.findIndex((x) => x.id === selectedCard.id) < 0)
+        if (myRecipes.findIndex((x) => x.id === selectedCard.id) < 0) {
             setShowButtonAdd(true);
-        else setShowButtonAdd(false);
+        } else {
+            setShowButtonAdd(false);
+        }
     }, [selectedCard, myRecipes]);
 
     const cloneRecipe = () => {

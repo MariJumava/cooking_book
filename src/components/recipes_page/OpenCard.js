@@ -80,9 +80,11 @@ export const OpenCard = ({ closeOpenCard, selectedRecipe }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (myRecipes.findIndex((x) => x.id === selectedRecipe.id) < 0)
+        if (myRecipes.findIndex((x) => x.id === selectedRecipe.id) < 0) {
             setShowButtonClone(true);
-        else setShowButtonClone(false);
+        } else {
+            setShowButtonClone(false);
+        }
     }, [selectedRecipe, myRecipes]);
 
     const cloneRecipe = () => {
