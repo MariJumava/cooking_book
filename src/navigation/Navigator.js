@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { App } from '../App.js';
 import { CookbookPage } from '../components/cookbooks_page/CookbookPage.js';
 import { Footer } from '../components/Footer.js';
@@ -10,19 +10,32 @@ import { ProtectedRoute } from '../components/login/ProtectedRoute.js';
 import { NotFound } from '../components/NotFound.js';
 
 export const Navigator = () => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
     return (
-        <Router>
-            <Navbar />
+        <>
+            {isAuthenticated && <Navbar />}
             <Routes>
-                <Route path="/signin" element={<SignIn />} />
+                <Route exact path="/signin" element={<SignIn />} />
                 <Route exact path="/" element={<App />} />
-                <Route path="/" element={<ProtectedRoute />} />
-                <Route path="/recipes" element={<RecipesPage />} />
-                <Route path="/cookbook" element={<CookbookPage />} />
-                <Route path="/user" element={<UserPage />} />
+
+                <Route
+                    exact
+                    path="/recipes"
+                    element={<ProtectedRoute component={<RecipesPage />} />}
+                />
+                <Route
+                    exact
+                    path="/cookbook"
+                    element={<ProtectedRoute component={<CookbookPage />} />}
+                />
+                <Route
+                    exact
+                    path="/user"
+                    element={<ProtectedRoute component={<UserPage />} />}
+                />
                 <Route path="*" element={<NotFound />} />
             </Routes>
-            <Footer />
-        </Router>
+            {isAuthenticated && <Footer />}
+        </>
     );
 };
